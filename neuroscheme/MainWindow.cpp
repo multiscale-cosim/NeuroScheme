@@ -806,10 +806,12 @@ void MainWindow::exportToJSON( void )
 
 void MainWindow::importFromJSON( void )
 {
+  std::cout << "ImportFronJSON" << _lastOpenedFileName << std::flush;
+  QFileDialog fileDialog(this,tr("Load Project"), "./..", tr("JSON file (*.json)"));
+  fileDialog.setOption(QFileDialog::DontUseNativeDialog,true);
   QString path = QFileDialog::getOpenFileName( this, tr( "Open JSON File" ),
-    _lastOpenedFileName, tr( "JSON File" ) + " ( *.JSON *.json );; "
+    _lastOpenedFileName , tr( "JSON File" ) + " ( *.JSON *.json );; "
     + tr( "All files" ) + " (*)" );
-
   if ( !path.isEmpty( ))
   {
     _lastOpenedFileName = QFileInfo( path ).path( );

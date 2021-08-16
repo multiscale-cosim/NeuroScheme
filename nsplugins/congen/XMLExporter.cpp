@@ -34,7 +34,8 @@ namespace nslib
 
       nodePopulations =
       nodeProjections =
-      nodeImpulses    = nullptr;
+      nodeImpulses    = 
+      nodeOutputs     = nullptr;
 
       QDomProcessingInstruction instr = domDoc.
           createProcessingInstruction( "xml", "version='1.0' encoding='UTF-8'" );
@@ -42,14 +43,9 @@ namespace nslib
 
       //External element
       nodeRoot = addElement( domDoc, domDoc, "neuroml", QString( ) );
-      nodeRoot.setAttribute( "xmlns","http://morphml.org/neuroml/schema" );
+      nodeRoot.setAttribute( "xmlns","http://www.neuroml.org/schema/neuroml2" );
       nodeRoot.setAttribute( "xmlns:xsi","http://www.w3.org/2001/XMLSchema-instance" );
-      nodeRoot.setAttribute( "xmlns:net","http://morphml.org/networkml/schema" );
-      nodeRoot.setAttribute( "xmlns:mml","http://morphml.org/morphml/schema" );
-      nodeRoot.setAttribute( "xmlns:meta","http://morphml.org/metadata/schema" );
-      nodeRoot.setAttribute( "xmlns:bio","http://morphml.org/biophysics/schema" );
-      nodeRoot.setAttribute( "xmlns:cml","http://morphml.org/channelml/schema" );
-      nodeRoot.setAttribute( "xsi:schemaLocation","http://morphml.org/neuroml/schema http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level3/NeuroML_Level3_v1.8.1.xsd" );
+      nodeRoot.setAttribute( "xsi:schemaLocation","http://www.neuroml.org/schema/neuroml2 https://github.com/NeuroML/NeuroML2/blob/master/Schemas/NeuroML2/NeuroML_v2.1.xsd" );
       nodeRoot.setAttribute( "length_units","micrometer" );
     }
 

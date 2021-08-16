@@ -44,6 +44,7 @@ namespace nslib
           QDomElement*  nodePopulations;
           QDomElement*  nodeProjections;
           QDomElement*  nodeImpulses;
+          QDomElement*  nodeOutputs;
 
       public:
           XMLExporter( );

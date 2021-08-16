@@ -35,6 +35,9 @@
                     "name": "TNeuronModel",
                     "values": [
                         "iaf psc alpha",
+                        "nmm_kuramoto",
+                        "nmm_2doscillator",
+                        "proxy",
                         "undefined"
                     ]
                 }
@@ -168,6 +171,8 @@
                         "Poisson generator",
                         "Spike generator",
                         "Step current generator",
+                        "Spike to rate translator",
+                        "Rate to spike translator",
                         "undefined generator"
                     ]
                 },
@@ -358,6 +363,12 @@
                     "name": "Threshold",
                     "type": "float",
                     "flags": [ "EDITABLE" ]
+                },
+                {
+                    "name": "Connectivity Matrix",
+                    "type": "std::string",
+                    "flags": [ "EDITABLE" ],
+                    "constraints" : [ { "type": "subproperty", "parentProperty": "Connectivity Model", "parentValue": "Atlas based" } ]
                 }
 
             ],
@@ -372,7 +383,8 @@
                         "Random",
                         "FanOut",
                         "FanIn",
-                        "Spatial Gaussian"
+                        "Spatial Gaussian",
+			"Atlas based"
                     ]
                 },
                 {
@@ -564,7 +576,9 @@
             [
                 { "srcEntity": "NeuronPop", "dstEntity": "NeuronPop" },
                 { "srcEntity": "NeuronPop", "dstEntity": "Output" },
-                { "srcEntity": "Input", "dstEntity": "NeuronPop" }
+                { "srcEntity": "Input", "dstEntity": "NeuronPop" },
+                { "srcEntity": "Output", "dstEntity": "NeuronPop" },
+                { "srcEntity": "NeuronPop", "dstEntity": "Input" }
             ],
             "flags": [ ],
             "properties": [ ],

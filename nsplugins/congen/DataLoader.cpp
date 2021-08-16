@@ -104,6 +104,15 @@ namespace nslib
       if ( cellType == "iaf psc alpha" )
         neuronModel = NeuronPop::TNeuronModel::iaf_psc_alpha;
 
+      if ( cellType == "nmm_kuramoto" )
+        neuronModel = NeuronPop::TNeuronModel::nmm_kuramoto;
+
+      if ( cellType == "nmm_2doscillator" )
+        neuronModel = NeuronPop::TNeuronModel::nmm_2doscillator;
+
+      if ( cellType == "proxy" )
+        neuronModel = NeuronPop::TNeuronModel::proxy;
+
       shift::Entity* neuronPop = new NeuronPop( popName, popSize, neuronModel );
       popNameToGid[ popName ] = neuronPop->entityGid( );
 

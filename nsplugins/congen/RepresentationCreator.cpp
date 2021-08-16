@@ -59,6 +59,15 @@ namespace nslib
       _neuronModelColorMap.setColor(
         shiftgen::NeuronPop::TNeuronModel::undefined,
         scoop::Color( "#ea9999" ));
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::nmm_kuramoto,
+        scoop::Color( "#ea0099" ));
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::nmm_2doscillator,
+        scoop::Color( "#0a9909" ));
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::proxy,
+        scoop::Color( "#0a5959" ));
 
       _stimulatorModelColorMap.setColor(
         shiftgen::Input::TInputType::Pulse_input,
