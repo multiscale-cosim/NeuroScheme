@@ -158,11 +158,20 @@ namespace nslib
 
       QDomElement connectivity_pattern_ = addElement( domDoc, projection, "connectivity_pattern" );
       QDomElement connectivity_pattern_type;
-      if  (( params.at( "Connectivity Model" ) == "All-to-all" ) ||
-           ( params.at( "Connectivity Model" ) == "One-to-one"))
+      if  (( params.at( "Connectivity Model" ) == "All-to-all" ))
       {
         connectivity_pattern_type = addElement( domDoc, connectivity_pattern_,
-            QString::fromStdString( params.at( "Connectivity Model" )));
+            QString::fromStdString( "all_to_all" ));
+      } else if  ( params.at( "Connectivity Model" ) == "One-to-one")
+      {
+        connectivity_pattern_type = addElement( domDoc, connectivity_pattern_,
+            QString::fromStdString( "one_to_one"));
+      } else if  ( params.at( "Connectivity Model" ) == "Atlas based")
+      {
+        std::ostringstream stringStream;
+        stringStream << "atlas_based__" << params.at( "Connectivity Matrix" );
+        connectivity_pattern_type = addElement( domDoc, connectivity_pattern_,
+            QString::fromStdString( stringStream.str() ));
       } else if ( params.at( "Connectivity Model" ) == "Random" )
       {
         connectivity_pattern_type = addElement( domDoc, connectivity_pattern_,

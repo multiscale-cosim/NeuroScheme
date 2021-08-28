@@ -39,6 +39,7 @@ namespace nslib
          QObject::tr( "Save Scene to NeuroML format" ),"",
          QObject::tr( "NeuroML" ) + " (*.xml);;"
          + QObject::tr( "All Files" ) + " (*)" );
+
       if ( fileName != "" )
       {
         XMLExporter* exporter_ = new XMLExporter;
@@ -50,6 +51,7 @@ namespace nslib
         {
            if ( dynamic_cast< shiftgen::NeuronPop* >( entity ))
            {
+             std::cout << entity->getProperty("Entity name" ).value<std::string>( ) << "\n";
              entitiesGids.push_back( entity->entityGid( ));
              exporter_->addPopulation( "http://morphml.org/networkml/schema",
                QString::fromStdString( entity->getProperty(
@@ -64,10 +66,8 @@ namespace nslib
         const auto& relConnectsTo = *( DataManager::entities( ).
           relationships( )[ "connectsTo" ]->asOneToN( ));
         saveXmlConnections( relConnectsTo, exporter_ );
-
         caster = fires::PropertyManager
           ::getPropertyCaster( "Random stim synaptic mechanism" );
-
         for ( const auto& entity : DataManager::noHierarchyEntities( ).vector( ))
         {
           if ( dynamic_cast< shiftgen::Input* >( entity ))
@@ -91,7 +91,6 @@ namespace nslib
                 connectedEntities );
           }
         }
-
         entitiesGids.clear( );
         exporter_->exportConGenXML( fileName.toStdString( ));
         delete exporter_;
@@ -128,7 +127,6 @@ namespace nslib
             fires::PropertyManager::getPropertyCaster( "Connectivity Model" );
           params["Connectivity Model"] = casterCM->toString( relPropIt->
             second->getProperty( "Connectivity Model" ));
-
           if ( params["Connectivity Model"] == "Random" )
           {
             params[ "Random probability" ] = std::to_string( relPropIt->second->
@@ -151,6 +149,10 @@ namespace nslib
             params[ "Spatial Gaussian Sigma" ] = std::to_string( relPropIt
               ->second->getProperty( "Spatial Gaussian Sigma" )
               .value< float >( ));
+          } else if ( params[ "Connectivity Model" ] == "Atlas based" )
+          {
+            params[ "Connectivity Matrix" ] = relPropIt->second->getProperty( "Connectivity Matrix" )
+              .value< std::string >( );
           }
 
           auto casterWT =
@@ -167,8 +169,7 @@ namespace nslib
               second->getProperty( "Weight Gaussian Mean" ).value< float >( ));
             params[ "Weight Gaussian Sigma" ] = std::to_string( relPropIt->
               second->getProperty( "Weight Gaussian Sigma" ).value< float >( ));
-          }
-
+          } 
           auto casterDT =
             fires::PropertyManager::getPropertyCaster( "Delay Type" );
           params[ "Delay Type" ] = casterDT->toString( relPropIt->second->
@@ -183,7 +184,7 @@ namespace nslib
               second->getProperty( "Delay Gaussian Mean" ).value< float >( ));
             params[ "Delay Gaussian Sigma" ] = std::to_string( relPropIt->
               second->getProperty( "Delay Gaussian Sigma" ).value< float >( ));
-          }
+          } 
           exporter_->addProjection( params );
         }
       }
