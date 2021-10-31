@@ -56,6 +56,59 @@ namespace nslib
       _neuronModelColorMap.setColor(
         shiftgen::NeuronPop::TNeuronModel::iaf_psc_alpha,
         scoop::Color( "#9fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::cell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::cell2CaPools,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::baseCell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::iafTauCell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::iafTauRefCell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::iafCell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::iafRefCell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::izhikevichCell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::izhikevich2007Cell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::adExIaFCell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::fitzHughNagumoCell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::fitzHughNagumo1969Cell,
+        scoop::Color( "#3fc5e8" ));
+
+      _neuronModelColorMap.setColor(
+        shiftgen::NeuronPop::TNeuronModel::pinskyRinzelCA3Cell,
+        scoop::Color( "#3fc5e8" ));
+
       _neuronModelColorMap.setColor(
         shiftgen::NeuronPop::TNeuronModel::undefined,
         scoop::Color( "#ea9999" ));

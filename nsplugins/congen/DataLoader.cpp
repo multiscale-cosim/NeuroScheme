@@ -104,6 +104,45 @@ namespace nslib
       if ( cellType == "iaf psc alpha" )
         neuronModel = NeuronPop::TNeuronModel::iaf_psc_alpha;
 
+      if ( cellType == "cell" )
+        neuronModel = NeuronPop::TNeuronModel::cell;
+
+      if ( cellType == "cell2CaPools" )
+        neuronModel = NeuronPop::TNeuronModel::cell2CaPools;
+
+      if ( cellType == "baseCell" )
+        neuronModel = NeuronPop::TNeuronModel::baseCell;
+
+      if ( cellType == "iafTauCell" )
+        neuronModel = NeuronPop::TNeuronModel::iafTauCell;
+
+      if ( cellType == "iafTauRefCell" )
+        neuronModel = NeuronPop::TNeuronModel::iafTauRefCell;
+
+      if ( cellType == "iafCell" )
+        neuronModel = NeuronPop::TNeuronModel::iafCell;
+
+      if ( cellType == "iafRefCell" )
+        neuronModel = NeuronPop::TNeuronModel::iafRefCell;
+
+      if ( cellType == "izhikevichCell" )
+        neuronModel = NeuronPop::TNeuronModel::izhikevichCell;
+
+      if ( cellType == "izhikevich2007Cell" )
+        neuronModel = NeuronPop::TNeuronModel::izhikevich2007Cell;
+
+      if ( cellType == "adExIaFCell" )
+        neuronModel = NeuronPop::TNeuronModel::adExIaFCell;
+
+      if ( cellType == "fitzHughNagumoCell" )
+        neuronModel = NeuronPop::TNeuronModel::fitzHughNagumoCell;
+
+      if ( cellType == "fitzHughNagumo1969Cell" )
+        neuronModel = NeuronPop::TNeuronModel::fitzHughNagumo1969Cell;
+
+      if ( cellType == "pinskyRinzelCA3Cell" )
+        neuronModel = NeuronPop::TNeuronModel::pinskyRinzelCA3Cell;
+
       if ( cellType == "nmm_kuramoto" )
         neuronModel = NeuronPop::TNeuronModel::nmm_kuramoto;
 
